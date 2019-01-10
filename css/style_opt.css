@@ -1,0 +1,77 @@
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+html,body,div,span,a,img,h1,h2,h3,h4,h5,h6,p,ol,ul,li,b,cite,em,i,small,strong,object,form,audio,video, input{ font-size: 10px;}
+h1,h2,h3,h4,h5,h6{line-height:1em;} h1{font-size:5.53846153846em; top: -0.1em} h2{font-size:2.76923076923em; top: 0.14em;} h3{font-size:1.69230769231em; } h4{font-size:1.38461538462em;top:2px}
+span{ font-size: 1.5em;}
+.large{ width: 80%;}
+
+}
+
+
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width : 321px) and ( max-width : 550px) {
+html,body,div,span,a,img,h1,h2,h3,h4,h5,h6,p,ol,ul,li,b,cite,em,i,small,strong,object,form,audio,video, input{ font-size: 10px;}
+h1,h2,h3,h4,h5,h6{line-height:1em;} h1{font-size:5.53846153846em; top: -0.1em} h2{font-size:2.76923076923em; top: 0.14em;} h3{font-size:1.69230769231em; } h4{font-size:1.38461538462em;top:2px}
+span{ font-size: 1.5em;}
+.large{ width: 80%;}
+}
+
+@media only screen and (min-width : 551px) and ( max-width : 768px) {
+html,body,div,span,a,img,h1,h2,h3,h4,h5,h6,p,ol,ul,li,b,cite,em,i,small,strong,object,form,audio,video, input{ font-size: 14px;}
+h1,h2,h3,h4,h5,h6{line-height:1em;} h1{font-size:5.53846153846em; top: -0.1em} h2{font-size:2.76923076923em; top: 0.14em;} h3{font-size:1.69230769231em; } h4{font-size:1.38461538462em;top:2px}
+span{ font-size: 1.5em;}
+.large{ width: 80%;}
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+html,body,div,span,a,img,h1,h2,h3,h4,h5,h6,p,ol,ul,li,b,cite,em,i,small,strong,object,form,audio,video, input{ font-size: 10px;}
+h1,h2,h3,h4,h5,h6{line-height:1em;} h1{font-size:5.53846153846em; top: -0.1em} h2{font-size:2.76923076923em; top: 0.14em;} h3{font-size:1.69230769231em; } h4{font-size:1.38461538462em;top:2px}
+span{ font-size: 1.5em;}
+.large{ width: 80%;}
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+html,body,div,span,a,img,h1,h2,h3,h4,h5,h6,p,ol,ul,li,b,cite,em,i,small,strong,object,form,audio,video, input{ font-size: 18px;}
+h1,h2,h3,h4,h5,h6{line-height:1em;} h1{font-size:5.53846153846em; top: -0.1em} h2{font-size:2.76923076923em; top: 0.14em;} h3{font-size:1.69230769231em; } h4{font-size:1.38461538462em;top:2px}
+span{ font-size: 1.5em;}
+.large{ width: 60%;}
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+html,body,div,span,a,img,h1,h2,h3,h4,h5,h6,p,ol,ul,li,b,cite,em,i,small,strong,object,form,audio,video, input{ font-size: 18px;}
+h1,h2,h3,h4,h5,h6{line-height:1em;} h1{font-size:5.53846153846em; top: -0.1em} h2{font-size:2.76923076923em; top: 0.14em;} h3{font-size:1.69230769231em; } h4{font-size:1.38461538462em;top:2px}
+span{ font-size: 1.5em;}
+.large{ width: 60%;}
+}
+
+/* iPads (portrait) ----------- */
+@media only screen  and (min-device-width : 768px)  and (max-device-width : 1024px)  and (orientation : portrait) {
+html,body,div,span,a,img,h1,h2,h3,h4,h5,h6,p,ol,ul,li,b,cite,em,i,small,strong,object,form,audio,video, input{ font-size: 16px;}
+h1,h2,h3,h4,h5,h6{line-height:1em;} h1{font-size:5.53846153846em; top: -0.1em} h2{font-size:2.76923076923em; top: 0.14em;} h3{font-size:1.69230769231em; } h4{font-size:1.38461538462em;top:2px}
+span{ font-size: 1.5em;}
+.large{ width: 50%;}
+}
+
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width : 1224px) {
+
+}
+
+/* Large screens ----------- */
+@media only screen  and (min-width : 1824px) {
+	html,body,div,span,a,img,h1,h2,h3,h4,h5,h6,p,ol,ul,li,b,cite,em,i,small,strong,object,form,audio,video, input{ font-size: 24px;}
+h1,h2,h3,h4,h5,h6{line-height:1em;} h1{font-size:5.53846153846em; top: -0.1em} h2{font-size:2.76923076923em; top: 0.14em;} h3{font-size:1.69230769231em; } h4{font-size:1.38461538462em;top:2px}
+span{ font-size: 1.5em;}
+.large{ width: 50%;}
+}
+
+/* iPhone 4 ----------- */
+@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
+html,body,div,span,a,img,h1,h2,h3,h4,h5,h6,p,ol,ul,li,b,cite,em,i,small,strong,object,form,audio,video, input{ font-size: 10px;}
+h1,h2,h3,h4,h5,h6{line-height:1em;} h1{font-size:5.53846153846em; top: -0.1em} h2{font-size:2.76923076923em; top: 0.14em;} h3{font-size:1.69230769231em; } h4{font-size:1.38461538462em;top:2px}
+span{ font-size: 1.5em;}
+.large{ width: 80%;}}

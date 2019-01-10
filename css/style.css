@@ -1,0 +1,109 @@
+html,body,div,span,a,img,h1,h2,h3,h4,h5,h6,p,ol,ul,li,b,cite,em,i,small,strong,object,form,audio,video, input{
+	font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+	font-size: 28px; font-weight:inherit;font-style:inherit;vertical-align:baseline;white-space:normal;text-align:center;margin:0;padding:0;border:0;outline:0; overflow: auto;}
+	h1,h2,h3,h4,h5,h6{font-weight:bold}
+	ol,ul{list-style:none}
+	ul{list-style-type:none}:focus{outline:0}
+/* base */
+h1,h2,h3,h4,h5,h6{font-weight:bold}b,strong{font-weight:bold}cite,dfn,em,i{font-style:italic}h1,h2,h3,h4,h5,h6{word-spacing:-0.125em}p{word-spacing:0.125em; hyphenate:auto;hyphenate-lines:3}p+p{text-indent:1.5em}p+p.no-indent{text-indent:0}pre{white-space:pre}small,sup,sub{font-size:80%}big{font-size:125%;line-height:80%}
+/* type */
+h1,h2,h3,h4,h5,h6{line-height:1em;} h1{font-size:5.53846153846em; top: -0.1em} h2{font-size:2.76923076923em; top: 0.14em;} h3{font-size:1.69230769231em; } h4{font-size:1.38461538462em;top:2px} h5{font-size:11.0769230769em;top:-.025em; /*overflow:auto;*/}h6{font-size:13px;top:0.38461538461em} ol,dl,dialog,pre,address{font-size:1em;line-height:1em;position:relative;top:0.38461538461em}li ul,li ol,ul ul,ol ol{top:0;margin-top:0;margin-bottom:0}li h1,li h2,li h3,li h4,li h5,li h6,li p{top:0}small,form,legend,label{font-size:0.84615384615em;} li address{ top:0;} 
+
+nav{
+	cursor: pointer;
+text-align: left;
+}
+
+a{ font-size: 1em; }
+input{ background: transparent;}
+
+.large{
+	width: 50%;
+}
+
+#wrapper{
+	width: 90%;
+	max-height: 96%;
+	margin: auto;
+	position: absolute;
+	display: inline-block;
+	top: 0; left: 0; bottom: 0; right: 0;
+}
+
+#container{
+	height: 100%;
+}
+
+#container>*{
+	position: relative;
+	top: 38%;
+}
+
+.want>*{
+	width: 100%;
+}
+
+.like>*{
+	text-align: left;
+/*			border-top: 1px solid #000;
+*/
+}
+
+.like{
+	text-align: center;
+}
+
+#like{
+margin-top: 2%;
+}
+
+span{
+	display: inline-table;
+	font-weight: bold;
+}
+.head{
+	background: transparent;
+}
+.head span{
+	font-size: .7em;
+}
+span:after{
+	content: "/ ";
+	background: #fff;
+	color: green;
+	font-weight: bold;
+}
+
+button{
+	text-decoration: none;
+	list-style: none;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	background: green;
+	color: white;
+	font-size: 1em;
+	position: fixed;
+	top: 0;
+	left: 40%;
+}
+
+button:hover{
+	cursor: pointer;
+	background: black;
+}
+#results{
+	width: 100%;
+	height: 95%;
+	margin-top: 2%;
+}
+#results img:hover{
+	cursor: pointer;
+}
+
+#results>*{
+	float: left;
+	margin: 1%;
+	height: auto;
+	background: green;
+}

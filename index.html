@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  	<meta name="description" content="A project about happiness PlayLAb KABK">
+	<meta name="keywords" content="PlayLap, amir houieh, kabk, happiness,what you want, what you like">
+	<meta name="author" content="Amir Houieh">
+	<meta charset="UTF-8">
+    <title>whatyouwantandwhatyoulike</title>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/ui-lightness/jquery-ui.css" type="text/css" rel="stylesheet">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <link href="css/style_opt.css" type="text/css" rel="stylesheet">
+
+  <script type="text/javascript">
+  var input,
+      want, counter=0;
+  var like_list = [];
+  var result_list = [];
+  var stc = ['What is it exactly you want right now?', 'And what do you like in general?']; 
+
+
+
+  function finder(){
+
+    var tasks=[];
+    var counter = 0;
+
+    $.each(like_list, function(index, item){
+
+      var input = "\"" + want + " " + item + "\"";
+      
+      var task = $.getJSON("https://ajax.googleapis.com/ajax/services/search/images?callback=?", {
+          q: input,
+          v: '1.0',
+        }, 
+        function(data){
+
+
+          var DT = data.responseData;
+          if ( DT != null && DT.results.length > 0 && DT.results !== null)
+          {
+
+              var result = {
+                          img: DT.results[ 1 ],
+                          number: DT.cursor.estimatedResultCount,
+                          name: item,
+                          title: input
+                          }
+
+
+              result_list.push( result );
+
+
+
+
+          } else{
+            console.log( 'no result');
+          }
+
+
+          // counter++;
+          // if ( counter == like_list.length ) doStuff( );
+
+        });
+        tasks.push( task );
+    });
+    
+
+/* jquery proxy function and asycronises event handelling  */
+
+
+  $.when.apply($,tasks).then(function() {
+
+    result_list.sort( function(a, b){ return parseInt( a.number ) < parseInt( b.number ); } );
+
+    // $.each(result_list, function(index, item){
+
+    //   console.log(item);
+    //   w = 100 / ( index * 2 + 2 );
+    //   var image = $('<img>');
+    //       image
+    //           .error(function(){
+    //             console.log('nist');
+    //           })
+    //           .load(function(){
+
+    //           })
+    //            .appendTo('#results')
+    //           .attr({
+    //             src: item.img.url,
+    //             title: item.title,
+    //             name: item.name,
+    //             tunb_W: index
+    //           })
+    //           .css('width', w+'%');
+    // });
+
+   });
+
+
+}
+
+$.fn.typewriter = function(){
+  var temp = "";
+  var select = this;
+  $.each(stc[this.attr('iid')], function(index, item){
+    setTimeout(function(){
+      temp += item;
+      select.attr('size', index+4).val(temp);
+    }, 50*index);
+
+  });
+
+}
+
+$.fn.x_larger = function(){
+
+    var clicked = this;
+
+
+    $('.head').find('span').each(function(){
+      var key = $(this).text();
+      if( key !== clicked.attr('name') &&  key!== want+" *")
+        $(this).css({color: 'yellow', background: 'yellow'});
+      else
+        $(this).css({color: '#000', background: '#fff'});
+    });
+
+
+    if( $(this).siblings().length>8)
+    this
+      .insertAfter($(this).siblings().eq( Math.floor( Math.random()* $(this).parent().size()-2 ) ), 500 );
+    this
+      .css('width', '').addClass('large',1000);
+
+    this.siblings().each(function(index, item){
+      var new_w = 50 / ( index * 2 + 2 );
+      $(this).removeClass('large').animate({width: new_w+'%'}, 600);
+    });
+
+
+
+
+}
+
+
+  function init(){
+
+    $('#want').focus();
+    $('input').addClass('on');
+
+    $( "form" ).on( "submit", function( event ) {
+      event.preventDefault();
+      var item = $(this).find('input[class="feild"]');
+      if( $( this ).hasClass('want') ){
+        want = item.val();
+        item.hide();
+        $(this).find('h1').text( item.val() ).fadeIn(1000, function(){
+          $('#container>*').animate({top: 0}, 1000, function(){
+                $('#like').show().focus().typewriter();
+          });
+        });
+      }
+      else{
+        var new_item = $('<span>'+item.val()+'</span>');
+        new_item.insertBefore($(this).find('#like'));
+        item.val('');
+      }
+      $(':focus').attr('size', 1 ) ;
+    });
+
+    
+    $('button').click(function(){
+      var head = $('.head');
+      $(this).fadeOut(1000);
+      $('.like>span').each(function(){
+        like_list.push( $(this).text() );
+      });
+
+      $('#container').fadeOut(1000, function(){
+        head.fadeIn(1000, function(){
+          head.append('<span>'+want+' *</span>');
+          $('.like>span').each(function(){
+            head.append( $(this) );
+          });
+      });
+
+      });
+      finder();
+
+
+    });
+
+    $( 'input' )
+      .on( "keydown", function(e){
+          var fc = $(':focus'); 
+
+          if( e.keyCode === 13  && fc.attr('id') === 'like' )
+            $('button').css('top', $(window).height() - $(this).height() )
+              .fadeIn(1000);
+
+
+          if( fc.hasClass('on') ){
+            fc.val('');
+            fc.removeClass('on');
+          }
+
+
+          fc.attr('size', $(':focus').val().length+1 ) ;
+        })
+        .focusout(function(){
+            $('#want').val('').typewriter();
+        });
+
+    $(document).on('click', 'img', function(){
+      $(this).x_larger();
+    });
+
+    $(document).on('click', '#star', function(){
+      location.reload();
+});
+    
+    $(document).on('click', '#about', function(){
+      $('nav').find('p').slideToggle(500);
+    });
+    
+    $('#want').typewriter();
+
+  }
+
+  $(document).ready( init );
+  </script>
+
+</head>
+  <body>
+      
+      <div id="wrapper">
+
+          <div id="container" class="hide">
+            <form name="input" method="get" class="want">
+              <input type="text" name="want" class="feild" id="want" onclick="this.value=''" iid="0">
+              <h1 class="hide"></h1>
+            </form>
+
+
+
+           <form name="input" method="get" class="like">
+               <input type="text" name="like" value="" id="like" onclick="this.value=''" class="feild" size="1" iid="1">
+            </form>
+
+          </div>
+
+          <button style="display: none;"> Get your happy photo </button>
+          <div class="head"></div>
+          <div id="results" class="masonry"></div>
+      </div>
+
+         
+          <nav title="about" style="text-align: left; position: fixed; font-size:.5em; margin-left: 1%; width: 15%; background: white;">
+                  <h4 id="star" style="text-align: left;">*</h4>
+        <a href="#" id="about">About</a>
+                  <p id="text" style="text-align: left; font-size: .8em; display: none"> What You like and What You Want, is a part of PlayLAb(KABK) assignments. More describtion comes soon.<br /><br />
+                  © 2014, <a href="mailto:amir.houieh@gmail.com">Amir Houieh</a>
+                  </p>
+      </nav>
+  </body>
+</html>
